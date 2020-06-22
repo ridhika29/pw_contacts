@@ -64,10 +64,12 @@ function signin() {
 }
 
 function view() {
+    document.getElementById('loader').style.display='block';
 	fetch('https://guarded-sands-14132.herokuapp.com/viewlist')
     .then(response => response.json())
     .then(json => 
-    	appendData(json))
+    	appendData(json)
+         )
       //  console.log(json))
     .catch(console.log)
 
@@ -92,5 +94,6 @@ function view() {
                 
                
             }
+            document.getElementById('loader').style.display='none';
         }
     
