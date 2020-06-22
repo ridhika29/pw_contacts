@@ -17,6 +17,7 @@
   
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
    <script src="main.js"></script>
    <style type="text/css">
      .hide{
@@ -47,7 +48,7 @@
       <div id="first" class="container p-5">
        <a class="btn-lg btn-info mg-2" href="register.html">Register</a> <br><br>
        <a class="btn-lg btn-info mg-2" href="signin.html">Sign In</a> <br><br>
-        <a class="btn-lg btn-info mg-2" href="viewlist.html">View List</a> <br><br>
+        <a class="btn-lg btn-info mg-2" onclick="view1()">View List</a> <br><br>
         </div>
     <div id="myData" class="hide table-responsive">
       <table id="mytable" class="table table-sm table-striped">
@@ -58,6 +59,11 @@
           <th>Phone</th>
         </tr>
       </table>
+      <div  class="d-flex justify-content-center">
+       <div id="loader" class="spinner-border" role="status">
+         <span class="sr-only">Loading...</span>
+       </div>
+     </div>
       <p><a href="index.html">Back</a></p>
     </div>
      
@@ -65,17 +71,12 @@
    
   </body>
   <script>
-
-      
-
         // Register SW if supported
         if ( 'serviceWorker' in navigator ) {
           window.addEventListener('load', () => {
             navigator.serviceWorker.register('/pwcontacts/app/sw.js');
           });
-        }
-
-      
+        } 
 
     </script>
    

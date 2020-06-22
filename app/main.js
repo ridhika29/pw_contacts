@@ -1,3 +1,4 @@
+
 function index(){
     document.getElementById('first').classList.toggle("hide");
     document.getElementById('myData').classList.add("hide");
@@ -58,9 +59,42 @@ function signin() {
     })
     .then(response => response.json())
     .then(json => {
+       // console.log(json);
        if(json.email)
-        {window.location.href="viewlist.html"}
+        {
+            getdata(json.email);
+           // window.location.href=`viewlist.html?email=${json.email}`
+        }
     });
+}
+
+function getdata(data)
+{
+    fetch('https://guarded-sands-14132.herokuapp.com/getdata', {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json'
+        },
+         body: JSON.stringify({
+       
+        email:data,
+        
+      })
+    })
+    .then(response => response.json())
+    .then(json => {
+       if(json)
+        {
+            window.location.href=`viewlist.html?email=${json.email}&name=${json.name}`
+        }
+    });
+
+}
+
+function view1(){
+    document.getElementById('first').style.display='none';
+    document.getElementById('myData').classList.toggle('hide');
+    view();
 }
 
 function view() {
@@ -96,4 +130,7 @@ function view() {
             }
             document.getElementById('loader').style.display='none';
         }
-    
+
+
+
+

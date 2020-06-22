@@ -17,6 +17,7 @@
   
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+   <script src="camera.js"></script>
    <script src="main.js"></script>
    <script>
     window.onload = view;
@@ -40,12 +41,26 @@
         border: none;
         border-radius: 5px;
       }
+     
    </style>
     <meta charset="utf-8">
     <title>Contacts pwa</title>
   </head>
   <body class="">
      <main class="p-2">
+      <h3>
+        Welcome,
+        <script>
+        var urlParams=new URLSearchParams(window.location.search);
+        var email=urlParams.get('email');
+         var name=urlParams.get('name');
+        document.write(name);
+      </script>
+
+      </h3>
+      
+      
+         
      
     <div id="myData" class=" table-responsive">
       <table id="mytable" class="table table-sm table-striped">
@@ -68,14 +83,5 @@
     </main>
    
   </body>
-  <script>
-
-      
-
-      
-
-      
-
-    </script>
-   
+ 
 </html>
